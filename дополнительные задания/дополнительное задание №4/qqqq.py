@@ -27,16 +27,16 @@ for entry in all_hits:
     data_to_write.append([obj_name, obj_addr, obj_phone, obj_hours])
 
 
-output_filename = "result1.csv"
+filename = "result1.csv"
 headers = ["Name", "Address", "Phone", "Hours"]
 
 try:
-    with open(output_filename, mode="w", newline="", encoding="utf-8") as file_handle:
+    with open(filename, mode="w", newline="", encoding="utf-8") as file_handle:
         writer = csv.writer(file_handle)
         writer.writerow(headers)
         writer.writerows(data_to_write)
     print("Задача завершена")
 except IOError as e:
-    print(f"Ошибка при записи в файл {output_filename}: {e}")
+    print(f"Ошибка при записи в файл {filename}: {e}")
 
 
