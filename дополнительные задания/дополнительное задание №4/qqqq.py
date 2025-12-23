@@ -7,9 +7,9 @@ base_url = "https://msk.spravker.ru/avtoservisy-avtotehcentry"
 with urllib.request.urlopen(base_url) as response:
     page_content = response.read().decode("utf-8")
 
-capture_pattern = r'(?:class="org-widget-header__title-link"[^>]*>)(?P<Name>[^<]+)</a>(?:.*?class="[^"]*org-widget-header__meta--location"[^>]*>\s*)(?P<Address>[^<]+)</span>(?:.*?Телефон</span></dt>\s*<dd class="spec__value">\s*(?P<Phone>[^<]+)</dd>)?(?:.*?Часы работы</span></dt>\s*<dd class="spec__value">\s*(?P<WorkHours>[^<]+)</dd>)?'
+vse = r'(?:class="org-widget-header__title-link"[^>]*>)(?P<Name>[^<]+)</a>(?:.*?class="[^"]*org-widget-header__meta--location"[^>]*>\s*)(?P<Address>[^<]+)</span>(?:.*?Телефон</span></dt>\s*<dd class="spec__value">\s*(?P<Phone>[^<]+)</dd>)?(?:.*?Часы работы</span></dt>\s*<dd class="spec__value">\s*(?P<WorkHours>[^<]+)</dd>)?'
 
-all_hits = re.findall(capture_pattern, page_content, re.S)
+all_hits = re.findall(vse, page_content, re.S)
 print(f"Общее количество найденных элементов: {len(all_hits)}")
 
 data_to_write = []
